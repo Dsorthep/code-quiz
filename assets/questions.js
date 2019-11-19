@@ -1,4 +1,5 @@
-const questions = [
+
+let questions = [
     {
         title: "What is the data type with two possible values of true or false?",
         choices: ["boolean", "jolene", "booski"],

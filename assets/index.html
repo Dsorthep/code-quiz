@@ -17,9 +17,23 @@
     <div id="start-container" class="d-flex justify-content-center">
         <button id= "start-button" type="button" class="btn btn-primary btn-lg">Start Game</button>
     </div>
+    <div id="quiz-container" style="display: none">
+        <div id ="title"></div>
+        <div id="choices">
+            <div class="choice" id=""
+            onclick="checkAnswer()"></div>
+            <div class="choice" id=""
+            onclick="checkAnswer()"></div>
+            <div class="choice" id=""
+            onclick="checkAnswer()"></div>
+        </div>
+    </div>
+
+    <div id="timer"></div>
+
+    <div id="score" style="display: none"></div>
 
     <script src="./questions.js"></script>
-    <script src="./scripts.js"></script>
 </body>
 
 </html>
