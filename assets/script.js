@@ -14,6 +14,7 @@ const scoreContainer = document.getElementById("score-container");
 start.addEventListener("click", startQuiz()); //to make start disappear on click
 //creating a function to start the quiz
 function startQuiz() {
+    console.log("start button disappeared")
     start.style.display = "none"; //this is so our start button isn't displayed while the quiz is going
     renderQuestion();
     quiz.style.display = "block";
@@ -31,6 +32,7 @@ let TIMER
 
 //making the function to present the questions after "Start" is pressed
 function renderQuestion() {
+    console.log("question was rendered");
     let q = questions[runningQuestion]; 
 
     question.innerHTML = "<p>" + q.question + "</p>"; //this is so the questions from the separate questions.js will show
@@ -46,6 +48,7 @@ function renderQuestion() {
 
 
 function renderCounter() {
+    console.log("timer started");
     if(count<= questionTime) {
         counter.innerHTML = count;
         count++
@@ -57,6 +60,7 @@ function renderCounter() {
             renderQuestion();
         }else{
             clearInterval(TIMER); //ends the quiz and will show  score
+            console.log("timer cleared")
         }
     }
 }
@@ -67,19 +71,25 @@ function checkAnswer(answer) {
     if( answer === questions[runningQuestion].correct) {
         score++; //if the answer is correct this adds a point to the score
         answerIsCorrect();
+        console.log("answer was correct");
     }else{
         answerIsWrong();
+        console.log("answer was wrong");
+        
     }
     count = 0;
     if(runningQuestion < lastQuestion) {
         count = 0
         runningQuestion++;
         renderQuestion();
+        console.log("new question appears")
     }
 }
 //scoring function
 function scoreRender() {
+    console.log("score was changed");
     scoreContainer.style.display = "block";
+    console.log("score appeared")
 
     const scorePercent = Math.round(100 * score/questions.length); //this will calculate score percentage
 }
