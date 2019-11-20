@@ -15,25 +15,26 @@
         <span class="navbar-brand mb-0 h1">Quiz</span>
     </nav>
     <div id="container">
-    <div id="start-container" class="d-flex justify-content-center">
-        <button onClick="style.display = 'none'" id= "start-button" type="button" class="btn btn-primary btn-lg">Start Quiz</button>
-    </div>
-    <div id="quiz-container" style="display: none">
-        <div id ="title"></div>
-        <div id="choices">
-            <div class="choice" id="A"
-            onclick="checkAnswer('A')">A</div>
-            <div class="choice" id="B"
-            onclick="checkAnswer('B')">B</div>
-            <div class="choice" id="C"
-            onclick="checkAnswer('C')">C</div>
+        <div id="start-container" class="d-flex justify-content-center">
+            <button onClick="style.display = 'none'" id= "start-button" type="button" class="btn btn-primary btn-lg">Start Quiz</button>
+            <div id="quiz">
+                <div id="question">
+                        <div id="choices">
+                                <div class="choice" id="A"
+                                onClick="check-answer('A')"></div>
+                                <div class="choice" id="B"
+                                onClick="check-answer('B')"></div>
+                                <div class="choice" id="C"
+                                onClick="check-answer('C')"></div>
+                        </div>
+                        <div id="timer">
+                        <div id="counter"></div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div id="timer"></div>
-
-    <div id="score" style="display: none"></div>
-</div>
 
     <script src="../code-quiz/assets/questions.js"></script>
     <script src="../code-quiz/assets/script.js"></script>

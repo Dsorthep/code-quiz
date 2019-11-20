@@ -1,28 +1,38 @@
 
 let questions = [
     {
-        title: "What is the data type with two possible values of true or false?",
-        choices: ["boolean", "jolene", "booski"],
-        answer: "boolean"
+        question: "What is the data type with two possible values of true or false?",
+        choiceA: "boolean", 
+        choiceB: "jolene", 
+        choiceC: "booski",
+        answer: "A"
     },
     {
-        title: "What is the abbreviation for an unordered list tag?",
-        choices: ["uo", "ul", "uno"],
-        answer: "ul"
+        question: "What is the abbreviation for an unordered list tag?",
+        choiceA: "uo",
+        choiceB: "ul", 
+        choiceC: "uno",
+        answer: "B"
     },
     {
-        title: "What does CSS stand for?",
-        choices: ["Castle Style Sheets", "Computer Science Sheets", "Cascading Style Sheets"],
-        answer: "Cascading Style Sheets"
+        question: "What does CSS stand for?",
+        choiceA: "Castle Style Sheets", 
+        choiceB: "Computer Science Sheets", 
+        choiceC: "Cascading Style Sheets",
+        answer: "C"
     },
     {
-        title: "What are the two data types that cannot contain a value?",
-        choices: ["null and undefined", "zero and negative", "none and dead"],
-        answer: "null and undefined"
+        question: "What are the two data types that cannot contain a value?",
+        choiceA: "null and undefined", 
+        choiceB: "zero and negative", 
+        choiceC: "none and dead",
+        answer: "A"
     },
     {
-        title: "What is the Javascript code that is used to perform a task?",
-        choices: ["object", "attribute", "function"],
-        answer: "function"
+        question: "What is the Javascript code that is used to perform a task?",
+        choiceA: "object", 
+        choiceB: "attribute", 
+        choiceC: "function",
+        answer: "C"
     },
 ];
