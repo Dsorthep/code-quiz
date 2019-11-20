@@ -1,4 +1,5 @@
 
+
 //creating the constants
 const start = document.getElementById("start-container");
 const quiz = document.getElementById("quiz");
@@ -11,43 +12,45 @@ const scoreContainer = document.getElementById("score-container");
 
 
 
-start.addEventListener("click", startQuiz()); //to make start disappear on click
+
 //creating a function to start the quiz
-function startQuiz() {
-    console.log("start button disappeared")
-    start.style.display = "none"; //this is so our start button isn't displayed while the quiz is going
-    renderQuestion();
-    quiz.style.display = "block";
-    renderCounter();
-    TIMER = setInterval(renderCounter,1000);
-}
 
+     
+    
+    //renderQuestion();
+     //making the function to present the questions after "Start" is pressed
+ 
+    
+     //creating variables to run the questions
+  const lastQuestion = questions.length - 1;
+  let runningQuestion = 0;
+  let count = 0;
+  const questionTime = 15; //15 seconds per question
+  let TIMER
 
-//creating variables to run the questions
-let lastQuestion = questions.length -1;
-let runningQuestion = 0;
-let count = 0;
-const questionTime = 15; //15 seconds per question
-let TIMER
-
-//making the function to present the questions after "Start" is pressed
-function renderQuestion() {
+  function renderQuestion() {
     console.log("question was rendered");
-    let q = questions[runningQuestion]; 
+     let q = questions[runningQuestion]; 
+     quiz.style.display = "block";
+     const quiz = questions[i];
+     question.innerHTML = "<p>" + q.question + "</p>"; //this is so the questions from the separate questions.js will show
+     choiceA.innerHTML = "<p>" + q.choiceA + "</p>"; //this will bring the choices from the questions.js
+     choiceB.innerHTML = "<p>" + q.choiceB + "</p>";
+     choiceC.innerHTML = "<p>" + q.choiceC + "</p>";
+ }
+ start.addEventListener("click", startQuiz()); //to make start disappear on click
+ function startQuiz() {
+    console.log("start button disappeared")
+    start.style.display = "none";
+     renderQuestion(); //this is so our start button isn't displayed while the quiz is going
+     quiz.style.display = "block";
+     renderCounter();
+     TIMER = setInterval(renderCounter,1000);
 
-    question.innerHTML = "<p>" + q.question + "</p>"; //this is so the questions from the separate questions.js will show
-    choiceA.innerHTML = q.choiceA; //this will bring the choices from the questions.js
-    choiceB.innerHTML = q.choiceB;
-    choiceC.innerHTML = q.choiceC;
-}
-
-
-
-
-//making the counter function to time the quiz 
-
-
-function renderCounter() {
+ 
+  
+  
+  function renderCounter() {
     console.log("timer started");
     if(count<= questionTime) {
         counter.innerHTML = count;
@@ -64,6 +67,23 @@ function renderCounter() {
         }
     }
 }
+  
+    
+
+}
+
+
+
+
+
+
+
+
+
+//making the counter function to time the quiz 
+
+
+
 
 //making a function to check the answers
 let score = 0
