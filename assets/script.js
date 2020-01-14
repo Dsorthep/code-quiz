@@ -8,6 +8,8 @@ const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
 const counter = document.getElementById("counter");
+const timeGauge = document.getElementById("timeGauge");
+const progress = document.getElementById("progress");
 const scoreContainer = document.getElementById("score-container");
 
 
@@ -26,34 +28,42 @@ const scoreContainer = document.getElementById("score-container");
   let runningQuestion = 0;
   let count = 0;
   const questionTime = 15; //15 seconds per question
-  let TIMER
+  const gaugeWidth = 150; // 150px
+  const gaugeUnit = gaugeWidth / questionTime;
+  let TIMER;
+  let score = 0;
 
-  function renderQuestion() {
+    function renderQuestion() {
     console.log("question was rendered");
-     let q = questions[runningQuestion]; 
-     quiz.style.display = "block";
-     const quiz = questions[i];
-     question.innerHTML = "<p>" + q.question + "</p>"; //this is so the questions from the separate questions.js will show
-     choiceA.innerHTML = "<p>" + q.choiceA + "</p>"; //this will bring the choices from the questions.js
-     choiceB.innerHTML = "<p>" + q.choiceB + "</p>";
-     choiceC.innerHTML = "<p>" + q.choiceC + "</p>";
+    let q = questions[runningQuestion]; 
+    question.innerHTML = "<p>" + q.question + "</p>"; //this is so the questions from the separate questions.js will show
+    choiceA.innerHTML = q.choiceA; //this will bring the choices from the questions.js
+    choiceB.innerHTML = q.choiceB;
+    choiceC.innerHTML = q.choiceC;
  }
- start.addEventListener("click", startQuiz()); //to make start disappear on click
- function startQuiz() {
+    start.addEventListener("click", startQuiz); //to make start disappear on click
+    function startQuiz() {
     console.log("start button disappeared")
     start.style.display = "none";
-     renderQuestion(); //this is so our start button isn't displayed while the quiz is going
-     quiz.style.display = "block";
-     renderCounter();
-     TIMER = setInterval(renderCounter,1000);
+    renderQuestion(); //this is so our start button isn't displayed while the quiz is going
+    quiz.style.display = "block";
+    renderProgress();
+    renderCounter();
+    TIMER = setInterval(renderCounter,1000);
+ }
 
- 
-  
-  
-  function renderCounter() {
+    //this shows correct and incorrect answers in the progress display 
+    function renderProgress(){
+    for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
+        progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
+    }
+}
+
+    function renderCounter() {
     console.log("timer started");
     if(count<= questionTime) {
         counter.innerHTML = count;
+        timeGauge.style.width = count * gaugeUnit + "px";
         count++
     }else{
         count = 0;
@@ -63,30 +73,13 @@ const scoreContainer = document.getElementById("score-container");
             renderQuestion();
         }else{
             clearInterval(TIMER); //ends the quiz and will show  score
+            scoreRender();
             console.log("timer cleared")
         }
     }
 }
-  
-    
-
-}
-
-
-
-
-
-
-
-
-
-//making the counter function to time the quiz 
-
-
-
 
 //making a function to check the answers
-let score = 0
 function checkAnswer(answer) {
     if( answer === questions[runningQuestion].correct) {
         score++; //if the answer is correct this adds a point to the score
@@ -99,11 +92,24 @@ function checkAnswer(answer) {
     }
     count = 0;
     if(runningQuestion < lastQuestion) {
-        count = 0
         runningQuestion++;
         renderQuestion();
         console.log("new question appears")
+    }else{
+        // this ends the quiz and shows the final score
+        clearInterval(TIMER);
+        scoreRender();
     }
+}
+
+// this function is for when the answer is correct
+function answerIsCorrect(){
+    document.getElementById(runningQuestion).style.backgroundColor = "#0ac7ae";
+}
+
+// this function is for when the answer is wrong
+function answerIsWrong(){
+    document.getElementById(runningQuestion).style.backgroundColor = "#fa7e70";
 }
 //scoring function
 function scoreRender() {
@@ -112,6 +118,8 @@ function scoreRender() {
     console.log("score appeared")
 
     const scorePercent = Math.round(100 * score/questions.length); //this will calculate score percentage
+    // this displays the score at the end
+    scoreContainer.innerHTML += "<p>"+ scorePercent +"%</p>";
 }
 
 

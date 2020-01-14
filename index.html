@@ -18,22 +18,29 @@
         <div id="start-container" class="d-flex justify-content-center">
             <button onClick="style.display = 'none'" id= "start-button" type="button" class="btn btn-primary btn-lg">Start</button>
             <div id="quiz" style="display: none">
-                <div id="question">
-                        <div id="choices">
-                                <div class="choice" id="A"
-                                    onClick="check-answer ('A')"></div>
-                                <div class="choice" id="B"
-                                    onClick="check-answer ('B')"></div>
-                                <div class="choice" id="C"
-                                    onClick="check-answer ('C')"></div>
-                        </div>
-                        <div id="timer">
-                        <div id="counter"></div>
-
+                <div class="row">
+                    <div id="question" class="question"></div>
+                  </div>
+                    <div id="choices" class="choice-grid">
+                      <div class="row">
+                        <div class="btn btn-dark choice" id="A" onclick="checkAnswer('A')"></div>
+                        <br>
+                        <div class="btn btn-dark choice" id="B" onclick="checkAnswer('B')"></div>
+                        <br>
+                        <div class="btn btn-dark choice" id="C" onclick="checkAnswer('C')"></div>
+                      </div>
                     </div>
+                    <div id="timer" class="timer">
+                        <div id="counter" class="counter"></div>
+                        <div id="btimeGauge" class="btimeGauge"></div>
+                        <div id="timeGauge" class="timeGauge"></div>
+                    </div>
+                    <div id="progress" class="progress"></div>
+                </div>
+                <div id="scoreContainer" class="scoreContainer" style="display: none"></div>
                 </div>
             </div>
-            <div id="score-container" style="display: none"></div>
+            
         </div>
     </div>
 
