@@ -8,11 +8,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1">Quiz</span>
+    <nav id="nav" class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Welcome to the Code Quiz!</span>
     </nav>
     <div id="container">
         <div id="start-container" class="d-flex justify-content-center">
@@ -24,11 +25,15 @@
                     <div id="choices" class="choice-grid">
                       <div class="row">
                         <div class="btn btn-dark choice" id="A" onclick="checkAnswer('A')"></div>
-                        <br>
+                    </div>
+                    <br>
+                    <div class="row">
                         <div class="btn btn-dark choice" id="B" onclick="checkAnswer('B')"></div>
-                        <br>
+                    </div>
+                    <br>
+                    <div class="row">
                         <div class="btn btn-dark choice" id="C" onclick="checkAnswer('C')"></div>
-                      </div>
+                    </div>
                     </div>
                     <div id="timer" class="timer">
                         <div id="counter" class="counter"></div>
@@ -37,7 +42,7 @@
                     </div>
                     <div id="progress" class="progress"></div>
                 </div>
-                <div id="scoreContainer" class="scoreContainer" style="display: none"></div>
+                <div id="score-container" class="score-container" style="display: none">YOUR SCORE IS...</div>
                 </div>
             </div>
             

@@ -15,19 +15,14 @@ const scoreContainer = document.getElementById("score-container");
 
 
 
-//creating a function to start the quiz
 
-     
-    
-    //renderQuestion();
-     //making the function to present the questions after "Start" is pressed
  
     
      //creating variables to run the questions
   const lastQuestion = questions.length - 1;
   let runningQuestion = 0;
   let count = 0;
-  const questionTime = 15; //15 seconds per question
+  const questionTime = 20; //15 seconds per question
   const gaugeWidth = 150; // 150px
   const gaugeUnit = gaugeWidth / questionTime;
   let TIMER;
@@ -104,12 +99,12 @@ function checkAnswer(answer) {
 
 // this function is for when the answer is correct
 function answerIsCorrect(){
-    document.getElementById(runningQuestion).style.backgroundColor = "#0ac7ae";
+    document.getElementById(runningQuestion).style.backgroundColor = "#3fda19";
 }
 
 // this function is for when the answer is wrong
 function answerIsWrong(){
-    document.getElementById(runningQuestion).style.backgroundColor = "#fa7e70";
+    document.getElementById(runningQuestion).style.backgroundColor = "#f12020";
 }
 //scoring function
 function scoreRender() {
